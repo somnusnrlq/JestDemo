@@ -142,3 +142,64 @@ test('FetchThreeData 测试', ()=>{
       })
   })
 ```
+完整示例
+```
+export default class NewBaoJian {
+    gongzhu(number){
+
+        this.user = number==1?'大脚':'刘英'
+
+    }
+    anjiao(){
+        this.fuwu =this.user+'走进房间为你_足疗'
+    }
+    anmo(){
+        this.fuwu =this.user+'走进房间为你_按摩'
+    }
+
+}
+
+import NewBaoJian from './newBaoJian'
+
+const baojian = new NewBaoJian()
+
+
+test('测试 大脚足浴  方法',()=>{
+    baojian.gongzhu(1)
+    baojian.anjiao()
+    console.log(baojian.fuwu)
+    expect(baojian.fuwu).toEqual('大脚走进房间为你_足疗')
+
+})
+```
+
+
+## 钩子函数 
+
+beforeAll() 所有测试用例之前进行执行
+afterAll()  是在完成所有测试用例之后才执行的函数
+beforeEach()  是在每个测试用例前都会执行一次的钩子函数
+afterEach()   是在每次测试用例完成测试之后执行一次的钩子函数
+
+## 函数作用域 分组
+
+分组的语法describe(),这个方法接受两个参数
+
+```
+
+describe('大脚相关服务',()=>{
+  test('测试 111  方法',()=>{
+      baojian.gongzhu(1)
+      baojian.anjiao()
+      console.log(baojian.fuwu)
+      expect(baojian.fuwu).toEqual('大脚走进房间为你_足疗')
+
+  })
+
+  test('测试 22  方法',()=>{
+  // .....
+  })
+
+})
+
+```
